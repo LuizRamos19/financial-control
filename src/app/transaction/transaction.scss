@@ -1,10 +1,11 @@
-.transaction-container {
-    width: 100%;
-    background-color: #fff;
-    overflow: hidden;
-}
+// .transaction-container {
+//     // width: 100%;
+//     background-color: #fff;
+//     overflow: hidden;
+//     display: inline;
+// }
 
-.transaction-container > .transaction-content {
+.transaction-content {
     width: 30%;
     float: left;
     overflow: hidden;
@@ -14,22 +15,22 @@
     padding: 20px 0 10px;
 }
 
-.transaction-container > .transaction-content > .title{
+.transaction-content > .title{
     text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.transaction-container > .transaction-content > .transaction-form {
+.transaction-content > .transaction-form {
     margin: 10px;
     font-size: 13px;
 }
 
-.transaction-container > .transaction-content > .transaction-form > .from-group {
+.transaction-content > .transaction-form > .from-group {
     width: 100%;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group > .control{
+.transaction-content > .transaction-form .from-group > .control{
     width: inherit;
     margin: 8px 0 17px;
     border: 2px solid #e0e0e0;
@@ -41,7 +42,7 @@
     outline: none;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group select {
+.transaction-content > .transaction-form .from-group select {
     border: none;
     box-shadow: none;
     background: transparent;
@@ -49,16 +50,16 @@
     -webkit-appearance: none;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group > .control.-select{
+.transaction-content > .transaction-form .from-group > .control.-select{
     background: #fff url("/assets/img/select.png") no-repeat 97% 50%;
     background-size: 17px;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group > .control.-last{
+.transaction-content > .transaction-form .from-group > .control.-last{
     margin-bottom: 15px;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group > .control.-button{
+.transaction-content > .transaction-form .from-group > .control.-button{
     border: 1px solid #333;
     background-color: #333;
     color: #fff;
@@ -67,6 +68,6 @@
     transition: all 300ms linear;
 }
 
-.transaction-container > .transaction-content > .transaction-form .from-group > .control.-button:active {
+.transaction-content > .transaction-form .from-group > .control.-button:active {
     transform: scale(0.9);
 }
