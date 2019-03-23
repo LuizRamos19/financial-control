@@ -1,2 +1,26 @@
-Extract
-<router-outlet></router-outlet>
+<!-- <div class="extract-container"> -->
+<div class="extract-content">
+    <h2 class="title">Extrato de transações</h2>
+    <table class="table-extract">
+        <tr class="table-title">
+            <th>Mercadoria</th>
+            <th class="-last">Valor</th>
+        </tr>
+        <tr *ngFor="let merchandise of merchandiseList; let i = index">
+            <!-- <span *ngIf="merchandise.transactionType == 1">+</span>
+            <span *ngIf="merchandise.transactionType == 2">-</span> -->
+            <th>{{merchandise.name}}</th>
+            <th class="-last">R$ {{merchandise.value}}</th>
+        </tr>
+    </table>
+    <table class="table-total">
+        <tr>
+            <th>Total</th>
+            <th class="-last">R$</th>
+        </tr>
+        <tr>
+            <th class="-last">(R$)</th>            
+        </tr>
+    </table>
+</div>
+<!-- </div> -->
