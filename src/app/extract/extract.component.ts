@@ -8,6 +8,7 @@ import { MerchandiseList } from '../models/merchandiseList.model';
 })
 export class ExtractComponent implements OnInit {
 	@Input() merchandiseList: MerchandiseList[];
+	private info: string = "";
 
 	ngOnInit() {
 		this.merchandiseList = [
