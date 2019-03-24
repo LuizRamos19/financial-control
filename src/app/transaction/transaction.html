@@ -1,28 +1,27 @@
-<!-- <div class="transaction-container"> -->
-    <div class="transaction-content">
-        <h1 class="title">Nova transação</h1>
-        <form class="transaction-form" action="/my-handling-form-page" method="post">
-            <div class="from-group">
-                <label for="name">Tipo de transação</label>
-                <select name="transaction_type" [(ngModel)]="transactionType" class="control -select">
-                    <option *ngFor="let type of transactionTypes" [value]="type.id">
-                        {{type.name}}
-                    </option>
-                </select>
-            </div>
-            <div class="from-group">
-                <label for="mail">Nome da mercadoria</label>
-                <input name="merchandise" [(ngModel)]="merchandise" class="control" type="text">
-            </div>
-            <div class="from-group">
-                <label for="msg">Valor</label>
-                <input name="value" [(ngModel)]="value" class="control -last" type="text">
-            </div>
-            <div class="from-group">
-                <button class="control -button" (click)="addMerchandise(transactionType, merchandise, value)">
-                    Adicionar transação
-                </button>
-            </div>
-        </form>
-    </div>
-<!-- </div> -->
+<div class="transaction-content">
+    <h1 class="title">Nova transação</h1>
+    <form class="transaction-form" action="/my-handling-form-page" method="post">
+        <div class="from-group select">
+            <label for="name">Tipo de transação</label>
+            <span class="arrow"></span>
+            <select name="transaction_type" [(ngModel)]="transactionType" class="control">
+                <option *ngFor="let type of transactionTypes" [value]="type.id">
+                    {{type.name}}
+                </option>
+            </select>
+        </div>
+        <div class="from-group">
+            <label for="mail">Nome da mercadoria</label>
+            <input name="merchandise" [(ngModel)]="merchandise" class="control" type="text">
+        </div>
+        <div class="from-group">
+            <label for="msg">Valor</label>
+            <input name="value" [(ngModel)]="value" class="control -last" type="text">
+        </div>
+        <div class="from-group">
+            <button class="control -button" (click)="addMerchandise(transactionType, merchandise, value)">
+                Adicionar transação
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,10 +1,3 @@
-// .transaction-container {
-//     // width: 100%;
-//     background-color: #fff;
-//     overflow: hidden;
-//     display: inline;
-// }
-
 .transaction-content {
     width: 30%;
     float: left;
@@ -50,9 +43,21 @@
     -webkit-appearance: none;
 }
 
-.transaction-content > .transaction-form .from-group > .control.-select{
-    background: #fff url("/assets/img/select.png") no-repeat 97% 50%;
-    background-size: 17px;
+.transaction-content > .transaction-form .from-group.select {
+    position: relative;
+    display: inline-block;
+}
+
+.transaction-content > .transaction-form .from-group > .arrow {
+    width: 25px;
+    height: 24px;
+    position: absolute;
+    display: inline-block;
+    top: 23px;
+    right: 2px;
+    background: url('/assets/img/select.png') no-repeat scroll right center / 90% #FFF;
+    pointer-events: none;
+    border-radius: 2px;
 }
 
 .transaction-content > .transaction-form .from-group > .control.-last{
