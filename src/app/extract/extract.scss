@@ -16,7 +16,7 @@
     margin-bottom: 13px;
 }
 
-.extract-content > .table-extract .title-extract {
+.extract-content > .table-extract .title {
     font-weight: bold;
     border-bottom: 2px solid #e0e0e0;
 }
@@ -37,17 +37,16 @@
     text-align: right;
 }
 
-.extract-content > .table-total {
-    margin-top: 2px;
-    border-top: 1px solid #ddd;
+.extract-content > .table-extract .total {
+    border-top: 4px solid #ddd;
     font-weight: bold;
 }
 
-.extract-content > .table-total th {
+.extract-content > .table-extract .total th {
     border: none;
 }
 
-tr:hover:not(.title-extract):not(.title-total) {
+tr:hover:not(.title):not(.total) {
     background-color:#f5f5f5;
 }
 
