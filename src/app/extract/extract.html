@@ -11,12 +11,12 @@
                 <span *ngIf="merchandise.transactionType == 2" class="icon">-</span>
                 {{merchandise.name}}
             </th>
-            <th class="-last">R$ {{merchandise.value}}</th>
+            <th class="-last">{{merchandise.value | currencyFormatted}}</th>
         </tr>
         <tr class="total">
             <th>Total</th>
             <th class="-last">
-                R$
+                R$ {{getInfoExtract(merchandiseList) | currencyFormatted}}
                 <span class="extract-info">({{info}})</span>
             </th>
         </tr>

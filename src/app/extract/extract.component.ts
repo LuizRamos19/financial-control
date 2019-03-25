@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { MerchandiseList } from '../models/merchandiseList.model';
 
 @Component({
@@ -6,14 +6,33 @@ import { MerchandiseList } from '../models/merchandiseList.model';
 	templateUrl: './extract.html',
 	styleUrls: ['./extract.scss']
 })
-export class ExtractComponent implements OnInit {
+export class ExtractComponent {
 	@Input() merchandiseList: MerchandiseList[];
+	private total: number = 0;
 	private info: string = "";
 
-	ngOnInit() {
-		this.merchandiseList = [
-			{transactionType: 1, name: "TEste", value: 12	},
+	getInfoExtract(merchandiseList) {
+		let total = 0;
+		merchandiseList.forEach(merchandise => {
+			let count = parseFloat(merchandise.value);
+			if (merchandise.transactionType == 1)
+				total+= parseFloat(merchandise.value);
+			else
+				total-= parseFloat(merchandise.value);
+		});
 
-		]
+		if (total < 0) {
+			this.info = "PREJUÍZO";
+		} else {
+			this.info = "LUCRO";
+		}
+
+		return total;
 	}
+
+	// ngOnChanges(changes: SimpleChanges) {
+    //     if (changes["merchandiseList"]) {
+    //         console.log("TEste");
+    //     }
+    // }
 }

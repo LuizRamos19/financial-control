@@ -22,6 +22,9 @@
 .transaction-content > .transaction-form > .from-group {
     width: 100%;
 }
+.transaction-content > .transaction-form > .from-group ::placeholder {
+    color: #949494;
+}
 
 .transaction-content > .transaction-form .from-group > .control{
     width: inherit;

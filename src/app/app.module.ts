@@ -7,20 +7,22 @@ import { AppComponent } from './app.component';
 import { ExtractComponent } from './extract/extract.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { HeaderComponent } from './header/header.component';
+import { CurrencyFormatter } from './models/currencyFormatter';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExtractComponent,
     TransactionComponent,
-    HeaderComponent
+    HeaderComponent,
+    CurrencyFormatter
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CurrencyFormatter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
