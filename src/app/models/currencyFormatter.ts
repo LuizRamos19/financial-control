@@ -5,23 +5,23 @@ export class CurrencyFormatter implements PipeTransform {
     private CURRENCY;
 
     constructor() {
-        this.CURRENCY = "R$";
+        this.CURRENCY = "R$ ";
     }
 
     transform(value: number | string, fractionFixed: number = 2): string {
-        let [ integer, fraction = "" ] = (value || "").toString().split(",");
-        fraction = fractionFixed > 0 ? "," + (fraction + "000000").substring(0, fractionFixed) : "";
+        let [ integer, float = "" ] = (value || "").toString().split(".");
+        if (fractionFixed > 0) {
+            float = this.getFloatFormatted(float, fractionFixed);
+        } else {
+            float = "";
+        }
         integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-        return integer + fraction;
+        
+        return this.CURRENCY + integer + float;
     }
 
-    parse(value: string, fractionFixed: number = 2): string {
-        let [ integer, fraction = "" ] = (value || "").split(",");
-        integer = integer.replace(new RegExp(",", "g"), "");
-        fraction = parseInt(fraction, 10) > 0 && fractionFixed > 0 ? "," + (fraction + "000000").substring(0, fractionFixed) : "";
-
-        return integer + fraction;
+    private getFloatFormatted(float, fractionFixed) {
+        return "," + (float + "000000").substring(0, fractionFixed);
     }
 
     private formatCurrencyNoDecimals(value) {

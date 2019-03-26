@@ -14,7 +14,6 @@ export class ExtractComponent {
 	getInfoExtract(merchandiseList) {
 		let total = 0;
 		merchandiseList.forEach(merchandise => {
-			let count = parseFloat(merchandise.value);
 			if (merchandise.transactionType == 1)
 				total+= parseFloat(merchandise.value);
 			else
