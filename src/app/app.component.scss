@@ -7,3 +7,10 @@
     position: relative;
     margin-top: 20px;
 }
+
+@media (max-width: 1150px) {
+    .content-container {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}

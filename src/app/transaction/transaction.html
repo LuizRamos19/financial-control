@@ -18,7 +18,7 @@
             <label for="msg">Valor</label>
             <input name="value" placeholder="R$ 0,00" [(ngModel)]="value" (keyup)="value = formatCurrency(value)" class="control -last" type="text">
         </div>
-        <div class="from-group">
+        <div class="from-group form-button">
             <button class="control -button" (click)="addMerchandise(transactionType, merchandise, value)" [disabled]="isAllValues">
                 Adicionar transação
             </button>

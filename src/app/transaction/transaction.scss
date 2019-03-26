@@ -6,6 +6,7 @@
     position: relative;
     border: 2px solid #e0e0e0;
     padding: 20px 0 10px;
+    box-sizing: border-box;
 }
 
 .transaction-content > .title{
@@ -21,13 +22,14 @@
 
 .transaction-content > .transaction-form > .from-group {
     width: 100%;
+    box-sizing: border-box;
 }
 .transaction-content > .transaction-form > .from-group ::placeholder {
     color: #949494;
 }
 
 .transaction-content > .transaction-form .from-group > .control{
-    width: inherit;
+    width: 100%;
     margin: 8px 0 17px;
     border: 2px solid #e0e0e0;
     border-radius: 5px;
@@ -78,4 +80,46 @@
 
 .transaction-content > .transaction-form .from-group > .control.-button:active {
     transform: scale(0.9);
+}
+
+@media (max-width: 770px) {
+    .transaction-content {
+        width: 100%;
+    }
+
+    .transaction-content > .transaction-form > .from-group {
+        width: 25%;
+        display: inline-block;
+    }
+
+    .transaction-content > .transaction-form > .from-group:nth-of-type(2) {
+        width: 50%;
+    }
+
+    .transaction-content > .transaction-form > .from-group:not(.select) {
+        padding-left: 20px;
+    }
+
+    .transaction-content > .transaction-form > .from-group.form-button {
+        width: 15em;
+        float: right;
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 445px) {
+    .transaction-content {
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 20px 0 22px;
+    }
+
+    .transaction-content > .transaction-form > .from-group {
+        width: 100%;
+    }
+    
+    .transaction-content > .transaction-form > .from-group:not(.select) {
+        width: 100%;
+        padding-left: 0px;
+    }
 }

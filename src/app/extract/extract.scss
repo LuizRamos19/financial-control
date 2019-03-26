@@ -1,6 +1,5 @@
 .extract-content {
-    width: 69.6%;
-    // float: left;
+    width: 70%;
     overflow: hidden;
     height: inherit;
     position: relative;
@@ -52,10 +51,18 @@ tr:hover:not(.title):not(.total) {
 
 .extract-content > .table-extract .icon {
     position: absolute;
-    left: 43px;
+    transform: translateX(-18px);
 }
 
 .extract-content > .table-extract .extract-info {
     display: block;
     font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .extract-content {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 8%;
+    }
 }

@@ -8,6 +8,10 @@ body {
     background-color: #ffffff;
 }
 
+label {
+    display: block;
+}
+
 @media (max-width: 355px) {
     body {
         overflow-x: hidden;
