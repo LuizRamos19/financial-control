@@ -30,10 +30,4 @@ export class ExtractComponent {
 
 		return total;
 	}
-
-	// ngOnChanges(changes: SimpleChanges) {
-    //     if (changes["merchandiseList"]) {
-    //         console.log("TEste");
-    //     }
-    // }
 }
