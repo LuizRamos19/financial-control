@@ -82,6 +82,12 @@
     transform: scale(0.9);
 }
 
+.transaction-content > .transaction-form .from-group > .control.-button.disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
 @media (max-width: 770px) {
     .transaction-content {
         width: 100%;

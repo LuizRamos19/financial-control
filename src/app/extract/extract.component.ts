@@ -22,8 +22,10 @@ export class ExtractComponent {
 
 		if (total < 0) {
 			this.info = "PREJUÍZO";
-		} else {
+		} else if (total > 0) {
 			this.info = "LUCRO";
+		} else {
+			this.info = "--";
 		}
 
 		return total;

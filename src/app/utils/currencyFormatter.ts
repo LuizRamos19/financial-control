@@ -10,6 +10,9 @@ export class CurrencyFormatter implements PipeTransform {
 
     transform(value: number | string, fractionFixed: number = 2): string {
         let [ integer, float = "" ] = (value || "").toString().split(".");
+        if (!integer) {
+            integer = "0";
+        }
         if (fractionFixed > 0) {
             float = this.getFloatFormatted(float, fractionFixed);
         } else {

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ExtractComponent } from './extract/extract.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { HeaderComponent } from './header/header.component';
-import { CurrencyFormatter } from './models/currencyFormatter';
+import { CurrencyFormatter } from './utils/currencyFormatter';
 
 @NgModule({
   declarations: [

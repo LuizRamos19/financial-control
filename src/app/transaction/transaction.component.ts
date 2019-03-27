@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TransactionTypes } from '../models/transactionTypes.model';
-import { MerchandiseList } from '../models/merchandiseList.model';
 import { FinancialControl } from '../models/financialControl.model';
-import { CurrencyFormatter } from '../models/currencyFormatter';
+import { CurrencyFormatter } from '../utils/currencyFormatter';
 
 @Component({
 	selector: 'transaction',
@@ -12,10 +10,10 @@ import { CurrencyFormatter } from '../models/currencyFormatter';
 
 export class TransactionComponent implements OnInit {
 	@Input() financialControl: FinancialControl;
-	private transactionType = -1;
-	private merchandise = "";
-	private value = "R$ 0,00";
-	private isAllValues = true;
+	private transactionType;
+	private merchandise;
+	private value;
+	private hasAllValues;
 
 	constructor(private currencyFormatter: CurrencyFormatter) {
     }
@@ -26,21 +24,19 @@ export class TransactionComponent implements OnInit {
 			{id: 1, name: "Compra"},
 			{id: 2, name: "Venda"}
 		];
+		this.clearValues();
 	}
 
 	private addMerchandise(type: number, merchandise: string, value: string | number) {
-		if (type == -1 || merchandise.trim() == "" || value == 0) {
-			// Do the exception here
-		} else {
+		if (this.checkValues()) {
 			this.financialControl.merchandiseList.push({
 				transactionType: type,
 				name: merchandise,
 				value: this.currencyFormatter.currencyParse(value)
 			});
-			console.log(this.financialControl.merchandiseList)
 			localStorage.setItem('merchandiseList', JSON.stringify(this.financialControl.merchandiseList));
-			console.log("Merchandise")
-			console.log(JSON.parse(localStorage.getItem('merchandiseList')));
+
+			this.clearValues();
 		}
 	}
 	
@@ -48,12 +44,20 @@ export class TransactionComponent implements OnInit {
 		return this.currencyFormatter.formatCurrency(value);
 	}
 
-	private hasAllValues() {
-		if (this.transactionType == -1) return false
-		else if (this.merchandise.trim() == "") return false
-		else if (this.value.replace(/[\D]+/g, '') == "0") return false
+	private clearValues() {
+		this.transactionType = -1;
+		this.merchandise = "";
+		this.value = "R$ 0,00";
+		this.hasAllValues = false;
+	}
 
-		return true;
+	private checkValues() {
+		if (this.transactionType != -1 && this.merchandise.trim() != "" && this.currencyFormatter.currencyParse(this.value) != 0) {
+			this.hasAllValues = true;
+		} else {
+			this.hasAllValues = false;
+		}
+		return this.hasAllValues;
 	}
 
 }

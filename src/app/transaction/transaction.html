@@ -4,7 +4,7 @@
         <div class="from-group select">
             <label for="name">Tipo de transação</label>
             <span class="arrow"></span>
-            <select name="transaction_type" [(ngModel)]="transactionType" class="control">
+            <select name="transaction_type" [(ngModel)]="transactionType" (ngModelChange)="checkValues()" class="control">
                 <option *ngFor="let type of financialControl.transactionTypes" [value]="type.id">
                     {{type.name}}
                 </option>
@@ -12,14 +12,14 @@
         </div>
         <div class="from-group">
             <label for="mail">Nome da mercadoria</label>
-            <input name="merchandise" placeholder="Nome da mercadoria" [(ngModel)]="merchandise" class="control" type="text">
+            <input name="merchandise" placeholder="Nome da mercadoria" [(ngModel)]="merchandise" (ngModelChange)="checkValues()" class="control" type="text">
         </div>
         <div class="from-group">
             <label for="msg">Valor</label>
-            <input name="value" placeholder="R$ 0,00" [(ngModel)]="value" (keyup)="value = formatCurrency(value)" class="control -last" type="text">
+            <input name="value" placeholder="R$ 0,00" [(ngModel)]="value" (keyup)="value = formatCurrency(value)" (ngModelChange)="checkValues()" class="control -last" type="text">
         </div>
         <div class="from-group form-button">
-            <button class="control -button" (click)="addMerchandise(transactionType, merchandise, value)" [disabled]="isAllValues">
+            <button class="control -button" [ngClass]="{'disabled': !hasAllValues}" (click)="addMerchandise(transactionType, merchandise, value)">
                 Adicionar transação
             </button>
         </div>
