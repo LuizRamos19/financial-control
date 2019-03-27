@@ -46,7 +46,7 @@
     height: 40px;
 }
 
-.header-container > .header-content > .navigation .-menu {
+.header-container > .header-content > .navigation .menu {
     display: none;
 }
 
@@ -94,6 +94,17 @@
     transform: scale(1);
 }
 
+.header-menu {
+    display: none;
+}
+
+.header-menu .action {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    padding-right: 10px;
+}
+
 @media (max-width: 1150px) {
     .header-container > .header-content {
         margin-left: 2%;
@@ -108,16 +119,12 @@
         transform: translateY(-50%) translateX(-50%);
     }
 
-    .header-container > .header-content > .navigation {
-        display: none;
-    }
-
-    .header-container > .header-content > .navigation .-menu {    
+    .header-container > .header-content > .navigation .menu,
+    .header-menu > .navigation .menu {
 		display: block;
 		box-sizing: border-box;
 		width: 40px;
 		height: 40px;
-		// background: url(assets/img/menu.png) no-repeat #fff center;
 		text-indent: -9999px;
 		margin: 0;
 		position: absolute;
@@ -127,5 +134,54 @@
 
 		transform: translateX(-100%);
 		transition: transform 400ms 100ms linear;
+    }
+
+    .header-menu > .navigation .menu {
+        transform: translateY(15px);
+        left: 5px;
+    }
+
+    .header-container > .header-content .list,
+    .header-menu .list {
+		background-color: #333;
+		color: #d2d2d2;
+		width: 30%;
+		padding: 40px 0 20px;
+        position: absolute;
+        z-index: 1000;
+		top: 0;
+        right: 0;
+        text-align: right;
+        height: 200vW;
+        padding-top: 70px;
+
+		transform: translateX(100%);
+		transition: transform 300ms linear;
+    }
+
+    .header-menu > .navigation .list.-active {
+        transform: translateX(0);
 	}
+
+	.header-menu .item {
+        display: block;
+        padding-top: 10px;
+        height: 28px;
+    }
+
+    .header-menu .item:hover {
+        background-color: #d2d2d2;
+		color: #333;
+    }
+    
+    .header-menu {
+        display: block;
+    }
+    
+}
+
+@media (max-width: 445px) {
+    .header-menu .list {
+		width: 80%;
+    }
 }
