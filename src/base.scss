@@ -6,14 +6,9 @@ html {
 body {
     font-family: 'Lato', sans-serif;
     background-color: #ffffff;
+    overflow-x: hidden;
 }
 
 label {
     display: block;
-}
-
-@media (max-width: 355px) {
-    body {
-        overflow-x: hidden;
-    }
 }

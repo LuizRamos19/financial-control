@@ -91,6 +91,7 @@
 @media (max-width: 770px) {
     .transaction-content {
         width: 100%;
+        float: none;
     }
 
     .transaction-content > .transaction-form > .from-group {
