@@ -7,56 +7,75 @@
     box-sizing: border-box;
     margin-top: 20px;
     text-align: center;
-}
 
-.extract-content > .title{
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 13px;
-}
+    > .title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 13px;
+    }
 
-.extract-content > .table-extract .title {
-    font-weight: bold;
-    border-bottom: 2px solid #e0e0e0;
-}
+    > .table-extract  {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
 
-.extract-content table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 13px;
-}
+        .title {
+            font-weight: bold;
+            border-bottom: 2px solid #e0e0e0;
+        }
 
-.extract-content th, td {
-    padding: 8px 25px 8px 40px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+        th, td {
+            padding: 8px 25px 8px 40px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-.extract-content .-last {
-    text-align: right;
-}
+        .-value {
+            text-align: right;
+        }
 
-.extract-content > .table-extract .total {
-    border-top: 4px solid #ddd;
-    font-weight: bold;
-}
+        .total {
+            border-top: 4px solid #ddd;
+            font-weight: bold;
+        }
 
-.extract-content > .table-extract .total th {
-    border: none;
-}
+        .total th {
+            border: none;
+        }
 
-tr:hover:not(.title):not(.total) {
-    background-color:#f5f5f5;
-}
+        tr:hover:not(.title):not(.total) {
+            background-color:#f5f5f5;
+        }
 
-.extract-content > .table-extract .icon {
-    position: absolute;
-    transform: translateX(-18px);
-}
+        .icon {
+            position: absolute;
+            transform: translateX(-18px);
+        }
 
-.extract-content > .table-extract .extract-info {
-    display: block;
-    font-weight: normal;
+        .extract-info {
+            display: block;
+            font-weight: normal;
+        }
+
+        tbody, thead, tfoot {
+            display: block;
+        }
+    
+        tbody {
+            max-height: 250px;
+            overflow-x: hidden;
+            position: relative;
+        }
+    
+        thead tr, tbody tr, tfoot tr {
+            width: 100%;
+            display: inline-table;
+        }
+    
+        thead th, tbody th, tfoot th {
+            width: 50%;
+        }
+    }
 }
 
 @media (max-width: 770px) {

@@ -1,24 +1,30 @@
 <div class="extract-content">
     <h2 class="title">Extrato de transações</h2>
     <table class="table-extract">
-        <tr class="title">
-            <th>Mercadoria</th>
-            <th class="-last">Valor</th>
-        </tr>
-        <tr *ngFor="let merchandise of merchandiseList; let i = index">
-            <th>
-                <span *ngIf="merchandise.transactionType == 1" class="icon">+</span>
-                <span *ngIf="merchandise.transactionType == 2" class="icon">-</span>
-                {{merchandise.name}}
-            </th>
-            <th class="-last">{{merchandise.value | currencyFormatted}}</th>
-        </tr>
-        <tr class="total">
-            <th>Total</th>
-            <th class="-last">
-                {{getInfoExtract(merchandiseList) | currencyFormatted}}
-                <span class="extract-info">({{info}})</span>
-            </th>
-        </tr>
+        <thead>
+            <tr class="title">
+                <th>Mercadoria</th>
+                <th class="-value">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let merchandise of merchandiseList; let i = index">
+                <th>
+                    <span *ngIf="merchandise.transactionType == 1" class="icon">+</span>
+                    <span *ngIf="merchandise.transactionType == 2" class="icon">-</span>
+                    {{merchandise.name}}
+                </th>
+                <th class="-value">{{merchandise.value | currencyFormatted}}</th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="total">
+                <th>Total</th>
+                <th class="-value">
+                    {{getInfoExtract(merchandiseList) | currencyFormatted}}
+                    <span class="extract-info">({{info}})</span>
+                </th>
+            </tr>
+        </tfoot>
     </table>
 </div>
