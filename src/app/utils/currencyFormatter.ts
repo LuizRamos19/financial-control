@@ -31,7 +31,7 @@ export class CurrencyFormatter implements PipeTransform {
 		var regex = /(\d+)(\d{3})/;
 		while(regex.test(value)) {
 			value = value.replace(regex, '$1' + '.' + '$2');
-		}
+        }
 		return this.CURRENCY + ' ' + value;
 	}
 	
@@ -54,7 +54,7 @@ export class CurrencyFormatter implements PipeTransform {
     }
     
     public currencyParse(numberString) {
-		return parseFloat(numberString.replace('.', '').replace(',', '.').replace(this.CURRENCY, ''));
+		return parseFloat(numberString.replace(/[.]/g, '').replace(',', '.').replace(this.CURRENCY, ''));
 	}
 
 }
