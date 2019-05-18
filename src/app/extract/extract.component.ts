@@ -11,23 +11,20 @@ export class ExtractComponent {
 	private total: number = 0;
 	private info: string = "";
 
-	getInfoExtract(merchandiseList) {
-		let total = 0;
+	calculateTotal(merchandiseList: MerchandiseList[]) {
 		merchandiseList.forEach(merchandise => {
 			if (merchandise.transactionType == 1)
-				total+= parseFloat(merchandise.value);
+				this.total-= merchandise.value;
 			else
-				total-= parseFloat(merchandise.value);
+				this.total+= merchandise.value;
 		});
 
-		if (total < 0) {
+		if (this.total < 0) {
 			this.info = "PREJUÍZO";
-		} else if (total > 0) {
+		} else if (this.total > 0) {
 			this.info = "LUCRO";
 		} else {
 			this.info = "--";
 		}
-
-		return total;
-	}
+    }
 }

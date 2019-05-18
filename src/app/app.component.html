@@ -1,6 +1,6 @@
 <header></header>
 <div class="content-container">
-    <transaction [(financialControl)]="financialControl"></transaction>
+    <transaction [(financialControl)]="financialControl" (calcTotal)="calculateTotal($event)"></transaction>
     <extract [(merchandiseList)]="financialControl.merchandiseList"></extract>
 </div>
 

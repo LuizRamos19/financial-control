@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FinancialControl } from '../models/financialControl.model';
 import { CurrencyFormatter } from '../utils/currencyFormatter';
 
@@ -9,11 +9,12 @@ import { CurrencyFormatter } from '../utils/currencyFormatter';
 })
 
 export class TransactionComponent implements OnInit {
-	@Input() financialControl: FinancialControl;
-	private transactionType;
-	private merchandise;
-	private value;
-	private hasAllValues;
+    @Input() financialControl: FinancialControl;
+    @Output() calcTotal = new EventEmitter();
+	private transactionType: number;
+	private merchandise: string;
+	private value: number | string;
+    private hasAllValues: boolean;
 
 	constructor(private currencyFormatter: CurrencyFormatter) {
     }
@@ -35,12 +36,12 @@ export class TransactionComponent implements OnInit {
 				value: this.currencyFormatter.currencyParse(value)
 			});
 			localStorage.setItem('merchandiseList', JSON.stringify(this.financialControl.merchandiseList));
-
+            this.calcTotal.emit(this.financialControl.merchandiseList);
 			this.clearValues();
 		}
 	}
 	
-	private formatCurrency(value) {
+	private formatCurrency(value: number | string) {
 		return this.currencyFormatter.formatCurrency(value);
 	}
 

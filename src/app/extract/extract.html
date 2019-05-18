@@ -10,8 +10,8 @@
         <tbody>
             <tr *ngFor="let merchandise of merchandiseList; let i = index">
                 <th>
-                    <span *ngIf="merchandise.transactionType == 1" class="icon">+</span>
-                    <span *ngIf="merchandise.transactionType == 2" class="icon">-</span>
+                    <span *ngIf="merchandise.transactionType == 1" class="icon">-</span>
+                    <span *ngIf="merchandise.transactionType == 2" class="icon">+</span>
                     {{merchandise.name}}
                 </th>
                 <th class="-value">{{merchandise.value | currencyFormatted}}</th>
@@ -21,7 +21,7 @@
             <tr class="total">
                 <th>Total</th>
                 <th class="-value">
-                    {{getInfoExtract(merchandiseList) | currencyFormatted}}
+                    {{total | currencyFormatted}}
                     <span class="extract-info">({{info}})</span>
                 </th>
             </tr>

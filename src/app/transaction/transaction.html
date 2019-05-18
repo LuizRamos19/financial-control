@@ -16,7 +16,7 @@
         </div>
         <div class="from-group">
             <label for="msg">Valor</label>
-            <input name="value" placeholder="R$ 0,00" [(ngModel)]="value" (keyup)="value = formatCurrency(value)" (ngModelChange)="checkValues()" class="control -last" type="text">
+            <input name="value" maxlength="21" placeholder="R$ 0,00" [(ngModel)]="value" (keyup)="value = formatCurrency(value)" (ngModelChange)="checkValues()" class="control -last" type="text">
         </div>
         <div class="from-group form-button">
             <button class="control -button" [ngClass]="{'disabled': !hasAllValues}" (click)="addMerchandise(transactionType, merchandise, value)">

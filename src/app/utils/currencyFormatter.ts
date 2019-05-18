@@ -19,7 +19,7 @@ export class CurrencyFormatter implements PipeTransform {
             float = "";
         }
         integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        
+
         return this.CURRENCY + integer + float;
     }
 
@@ -28,31 +28,31 @@ export class CurrencyFormatter implements PipeTransform {
     }
 
     private formatCurrencyNoDecimals(value) {
-		var regex = /(\d+)(\d{3})/;
+		let regex = /(\d+)(\d{3})/;
 		while(regex.test(value)) {
 			value = value.replace(regex, '$1' + '.' + '$2');
         }
-		return this.CURRENCY + ' ' + value;
+		return this.CURRENCY + value;
 	}
-	
+
 	public formatCurrency(value) {
 		value = value.replace( /[^0-9]/g, '' );
-	
+
         if(value.length == 0) value = "0.00";
         else if(value.length == 1) value = "0.0" + value;
         else if(value.length == 2) value = "0." + value;
         else value = value.substring(0, value.length - 2) + '.' + value.substring(value.length - 2, value.length);
-    
+
         value = new Number(value);
         value = value.toFixed(2);
         value = value.replace(/\./g, ',');
         let p = value.split(',');
         let p1 = p[0];
         let p2 = p.length > 1 ? ',' + p[1] : '';
-	
+
 		return this.formatCurrencyNoDecimals(p1) + p2;
     }
-    
+
     public currencyParse(numberString) {
 		return parseFloat(numberString.replace(/[.]/g, '').replace(',', '.').replace(this.CURRENCY, ''));
 	}
